@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import Navbar from "./Navbar";
+import NavbarBottom from "./NavbarBottom";
+import Home from "./Home";
+import About from "./About";
+import Skills from "./Skills";
+import Education from "./Education";
+import Work from "./Work";
+import Contact from "./Contact";
 
 function App() {
+  const [mode, setMode] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="font-[Roboto]">
+        <Navbar mode={mode} setMode={setMode} />
+
+        <main className="main h-[100vh] w-Full snap-y snap-mandatory overflow-y-auto">
+          <Home />
+          <About />
+          <Skills />
+          <Education />
+          <Work />
+          <Contact />
+        </main>
+        <NavbarBottom />
+      </div>
+    </>
   );
 }
 
